@@ -1,0 +1,12 @@
+#header-fijo {/*ocupar todo el ancho, posicionar arriba, y z para que se muestre encima del texto*/
+	width: 100%;
+	left: 0;
+	top: 0;
+	position: fixed;
+    z-index:1000;
+}/*Margenes 0 y el padding-top es lo abajo que empezaría*/
+body {
+	margin: 0;
+	padding: 0;
+	padding-top: 80px; 
+}

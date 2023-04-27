@@ -1,0 +1,40 @@
+use e-commerce-gt
+db.createCollection('usuarios')
+db.usuarios.insertMany(
+    [
+        {
+            user:'Mariano',
+            direccion:'Zona 2 Quetzaltenango',
+            tipo_usuario:'Comun',
+            pwd:'1234'
+        },
+        {
+            user:'Mariano2',
+            direccion:'Zona 2 Quetzaltenango',
+            tipo_usuario:'Paqueteria',
+            pwd:'1234'
+        },
+        {
+            user:'Mariano3',
+            direccion:'Zona 2 Quetzaltenango',
+            tipo_usuario:'Administrador',
+            pwd:'1234'
+        }
+    ]
+)
+db.usuarios.insertMany(
+    [
+        {
+            user:'Mariano2',
+            direccion:'Zona 2 Quetzaltenango',
+            tipo_usuario:'Paqueteria',
+            pwd:'1234'
+        },
+        {
+            user:'Mariano3',
+            direccion:'Zona 2 Quetzaltenango',
+            tipo_usuario:'Administrador',
+            pwd:'1234'
+        }
+    ]
+)

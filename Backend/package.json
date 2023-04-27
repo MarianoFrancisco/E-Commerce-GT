@@ -1,0 +1,28 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Backend para E-Commerce GT",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarianoFrancisco/E-Commerce-GT.git"
+  },
+  "author": "Mariano Camposeco",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarianoFrancisco/E-Commerce-GT/issues"
+  },
+  "homepage": "https://github.com/MarianoFrancisco/E-Commerce-GT#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^7.0.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
