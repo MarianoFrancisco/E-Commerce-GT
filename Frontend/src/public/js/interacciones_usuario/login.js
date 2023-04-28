@@ -11,7 +11,7 @@ function enviarDatosLogin(evento){
         user:user,
         pwd:pwd
     }
-    fetch(URL,{
+    fetch(URL+"login",{
         method:'POST',
         headers:{
             'Content-Type':'application/json'
@@ -19,13 +19,13 @@ function enviarDatosLogin(evento){
         body: JSON.stringify(datosLogin)
     })
     .then(res=>res.json())
-    .then(datos=>verDatos(datos))
+    .then(datos=>procesarDatos(datos))
 }
-function verDatos(datos){
+function procesarDatos(datos){
     //ver si hay datos en el json significa que se encontró
     if(Object.keys(datos).length==1){
         if(datos[0].tipo_usuario=="Comun"){
-            window.location.href = "http://localhost:5500/client";
+            window.location.href = "http://localhost:5500/home";
         }else if(datos[0].tipo_usuario=="Paqueteria"){
             window.location.href = "http://localhost:5500/package";
         }else if(datos[0].tipo_usuario=="Administrador"){

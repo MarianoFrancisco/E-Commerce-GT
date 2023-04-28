@@ -4,3 +4,6 @@ npm init
 npm i dotenv cors express mongoose 
 npm i nodemon -D
 npm i dotenv express nodemon -D
+npx nodemon index.js
+npm run dev
+npm start
