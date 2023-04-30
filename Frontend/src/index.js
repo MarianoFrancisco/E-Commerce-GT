@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const app = express();
-const PUERTO = process.env.PUERTO;
+const PUERTO = process.env.PUERTO||5500;
 app.use(express.json());
 app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'ejs');
