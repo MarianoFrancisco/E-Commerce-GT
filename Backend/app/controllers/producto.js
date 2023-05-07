@@ -10,6 +10,11 @@ const myProducts = async (req, res) => {
     console.log(select);
     res.json(select);
 };
+const eliminarProducto = async (req, res) => {
+    const remove = await Producto.deleteOne({_id:req.body.id});
+    console.log(req.body.id);
+    res.json(remove);
+};
 const declineProducts = async (req, res) => {
     const select = await Producto.find({ estado:"RECHAZADO",usuario:req.body.id});
     res.json(select);
@@ -28,6 +33,7 @@ const agregarProducto = async (req, res) => {
         categoria: req.body.categoria,
         estado: 'PENDIENTE'
     });
+    console.log(req.file)
     if(req.file){
         nuevoProducto.setImagen(req.file.filename);
     }
@@ -49,4 +55,4 @@ const rechazarProducto = async (req, res) => {
 };
 
 module.exports = { agregarProducto,todosLosProductos,productosPendientes,aceptarProducto,rechazarProducto,
-                    myProducts,declineProducts,pendingProducts};
+                    myProducts,declineProducts,pendingProducts,eliminarProducto};

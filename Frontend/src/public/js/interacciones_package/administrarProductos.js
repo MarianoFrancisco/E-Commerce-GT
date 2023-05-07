@@ -41,15 +41,15 @@ function procesarDatos(datos) {
           <td>${productos.precio}</td>
           <td>${productos.existencia}</td>
           <td>${productos.categoria}</td>
-          <td><button class="aceptar" data-id="${productos._id}">ACEPTAR</button></td>
-          <td><button class="rechazar" data-id="${productos._id}">RECHAZAR</button></td>
+          <td><button class="btn btn-success" id="aceptar">ACEPTAR</button></td>
+          <td><button class="btn btn-danger" id="rechazar">RECHAZAR</button></td>
         `;
         tablaProductos.appendChild(fila);
-        const aceptarProducto = fila.querySelector('.aceptar');
-        const rechazarProducto = fila.querySelector('.rechazar');
+        const aceptarProducto = fila.querySelector('#aceptar');
+        const rechazarProducto = fila.querySelector('#rechazar');
         aceptarProducto.addEventListener('click', () => {
             const producto = {
-                id:aceptarProducto.dataset.id
+                id:productos._id
             };
             fetch(URL + "aceptarProducto", {
                 method: 'POST',

@@ -23,7 +23,7 @@ function procesarDatos(datos, accion) {
     }
     console.log(Object.keys(datos).length);
 
-    
+
     console.log(accion);
     if (accion == "myProducts") {
         const fila = document.createElement('tr');
@@ -51,16 +51,29 @@ function procesarDatos(datos, accion) {
           <td>${productos.precio}</td>
           <td>${productos.existencia}</td>
           <td>${productos.categoria}</td>
-          <td><button class="editar" data-id="${productos._id}">Editar</button></td>
-          <td><button class="eliminar">Eliminar</button></td>
+          <td><button class="btn btn-warning" id="editar">Editar</button></td>
+          <td><button class="btn btn-danger" id="remove">Eliminar</button></td>
         `;
             tablaProductos.appendChild(fila);
-
-            //Para abrir el documento
-            const editarButton = fila.querySelector('.editar');
-            editarButton.addEventListener('click', () => {
-                const id = editarButton.dataset.id;
-                window.location.href = `editUsuario.html?id=${id}`;
+            const remove = fila.querySelector('#remove');
+            remove.addEventListener('click', () => {
+                const producto = {
+                    id: productos._id
+                };
+                fetch(URL + "removeProduct", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(producto)
+                })
+                    .then(res => res.json())
+                    .then(setTimeout(redireccionar, 10))
+            });
+            const edit = fila.querySelector('#editar');
+            edit.addEventListener('click', () => {
+                const id = edit.dataset.id;
+                window.location.href = `editUsuario.html?id=${productos._id}`;
             });
         })
     } else if (accion == "declineProducts") {
@@ -127,4 +140,7 @@ function procesarDatos(datos, accion) {
         })
     }
 
+}
+function redireccionar() {
+    window.location.href = "";
 }

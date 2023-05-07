@@ -22,6 +22,9 @@ router.get('/carrito', (req, res) => {
 router.get('/registro', (req, res) => {
     res.render('./client/registro', { title: 'Registro' });
 });
+router.get('/addProduct', (req, res) => {
+    res.render('./client/agregarProducto', { title: 'Registro' });
+});
 //paqueteria
 router.get('/package', (req, res) => {
     res.render('./package/index', { title: 'Package' });

@@ -1,7 +1,7 @@
 const URL = 'http://localhost:5000/';
 
 function obtenerProductos(accion) {
-    fetch(URL +accion, {
+    fetch(URL + accion, {
         headers: {
             'Content-Type': 'application/json'
         }
@@ -12,7 +12,7 @@ function obtenerProductos(accion) {
 function procesarDatos(datos) {
     const tablaProductos = document.getElementById('tablaProducto');
     var tr = document.getElementsByTagName('tr');
-    for(var i = 0; i < tr.length; i++){
+    for (var i = 0; i < tr.length; i++) {
         tr[i].innerHTML = ''
     }
     console.log(Object.keys(datos).length);
@@ -26,32 +26,38 @@ function procesarDatos(datos) {
         <th scope="col">PRECIO</th>
         <th scope="col">EXISTENCIA</th>
         <th scope="col">CATEGORÍAS</th>
-        <th scope="col">MODIFICACIÓN</th>
-        <th scope="col">ELIMINACIÓN</th>
+        <th scope="col">COMPRAR</th>
+        <th scope="col">CARRITO</th>
     </tr>
 </thead>
         `;
     tablaProductos.appendChild(fila);
-    let persona= JSON.parse(localStorage.getItem("Usuario"));
-    datos.forEach(productos=> {
-        if(productos.usuario!=persona._id){
-        const fila = document.createElement('tr');
-        fila.innerHTML = `
+    let persona = JSON.parse(localStorage.getItem("Usuario"));
+    datos.forEach(productos => {
+        if (productos.usuario != persona._id) {
+            const fila = document.createElement('tr');
+            fila.innerHTML = `
           <td><img class="small-flag" src="${productos.imagen}" width="100" height="100"></td>
           <td scope="row">${productos.nombre_producto}</td>
           <td>${productos.descripcion}</td>
           <td>${productos.precio}</td>
           <td>${productos.existencia}</td>
           <td>${productos.categoria}</td>
-          <td><button class="editar" data-id="${productos._id}">Editar</button></td>
-          <td><button class="eliminar">Eliminar</button></td>
+          <td><input type="number" id="cantidad"></input></td>
+          <td><button type="button" id="agregar" class="btn btn-success">Agregar</button></td>
         `;
-        tablaProductos.appendChild(fila);
-  
-        //Para abrir el documento
-        const editarButton = fila.querySelector('.editar');
-        editarButton.addEventListener('click', () => {
-          const id = editarButton.dataset.id;
-          window.location.href = `editUsuario.html?id=${id}`;
-        });}})
+            tablaProductos.appendChild(fila);
+            const remove = fila.querySelector('#agregar');
+            remove.addEventListener('click', () => {
+                const cantidad = fila.querySelector('#cantidad');
+                const producto = {
+                    id:productos._id
+                };
+            });
+            
+        }
+    })
+}
+function redireccionar() {
+    window.location.href = "";
 }

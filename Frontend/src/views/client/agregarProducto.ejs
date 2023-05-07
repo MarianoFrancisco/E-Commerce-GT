@@ -1,0 +1,50 @@
+<link href="css/registro.css" rel="stylesheet" id="bootstrap-css">
+<%- include('../template/head'); -%>
+    <br>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div style="width: 300px;"><input type="submit" onclick=" location.href='/vender' " name="login"
+                value="Regresar" id="inBtnRst" style="color:rgb(0, 0, 0);"></div>
+    </nav>
+    <br>
+    <form method="POST" id="nuevoProductoForm">
+        <center>
+            <div id="circle">
+                <h1 id="blinking" style="color: #ffffff;">VENDER NUEVO PRODUCTO</h1>
+                <div id="box">
+                    <input type="text" name="nombre" id="nombre" placeholder="Nombre del producto"
+                        class="input"><br>
+                    <p></p>
+                    <input type="text" name="descripcion" id="descripcion"
+                        placeholder="Descripción del producto" class="input"><br>
+                    <p></p>
+                    <input type="number" name="existencia" id="existencia"
+                        placeholder="Cantidad en existencia del producto" class="input"><br>
+                    <p></p>
+                    <input type="number" name="precio" id="precio" placeholder="Precio del producto"
+                        class="input"><br>
+                    <p></p><label for="title" style="color:#ffffff">CATEGORÍAS:</label><p></p>
+                    <input type="checkbox" id="cb1" name="cb1" value="Tecnología" >
+                    <label for="cb1" style="color:#ffffff">Tecnología</label>
+                    <input type="checkbox" id="cb2" name="cb2" value="Hogar">
+                    <label for="cb2" style="color:#ffffff">Hogar</label>
+                    <input type="checkbox" id="cb3" name="cb3" value="Académico">
+                    <label for="cb3" style="color:#ffffff">Académico</label><br>
+                    <input type="checkbox" id="cb4" name="cb4" value="Literatura">
+                    <label for="cb4" style="color:#ffffff">Literatura</label>
+                    <input type="checkbox" id="cb5" name="cb5" value="Decoración">
+                    <label for="cb5" style="color:#ffffff">Decoración</label>
+                    <input type="checkbox" id="cb6" name="cb6" value="Otros">
+                    <label for="cb6" style="color:#ffffff">Otros</label><p></p>
+                    <label for="title" style="color:#ffffff">IMAGEN:</label>
+                    <input type="file" name="img" id="img" class="input" ><br>
+                    <p></p>
+                    <p></p>
+                    <input type="submit" name="registro" value="Agregar Producto" id="inBtn" style="color:white;">
+                </div>
+            </div>
+        </center>
+    </form>
+    <script src="js/interacciones_usuario/agregarProducto.js"></script>
+    </body>
+
+    </html>

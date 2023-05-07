@@ -5,11 +5,8 @@ body {
 #box {
 	height: 2px;
 	width: 1px;
-	padding: 50px;
-	background-color: hsl(0, 0%, 70%);
-	border-radius: 15px;
+	border-radius: 0px;
 	line-height: 90px;
-	box-shadow: 0 0 15px #00ffffb4;
 }
 
 
