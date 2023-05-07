@@ -24,6 +24,9 @@ function enviarDatosLogin(evento){
 function procesarDatos(datos){
     //ver si hay datos en el json significa que se encontró
     if(Object.keys(datos).length==1){
+        localStorage.setItem("Usuario",JSON.stringify(datos[0]));
+        let persona= JSON.parse(localStorage.getItem("Usuario"));
+        console.log(persona._id);
         if(datos[0].tipo_usuario=="Comun"){
             window.location.href = "http://localhost:5500/home";
         }else if(datos[0].tipo_usuario=="Paqueteria"){

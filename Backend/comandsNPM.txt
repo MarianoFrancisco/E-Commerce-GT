@@ -1,7 +1,7 @@
 -.env y .env.example dotenv para variables que usaremos y no queremos mostrar, rutas y base de datos
 --cors es para la seguridad, que no puedan hacer solicitudes de nomas
 npm init
-npm i dotenv cors express mongoose 
+npm i dotenv multer cors express mongoose 
 npm i nodemon -D
 npm i dotenv express nodemon -D
 npx nodemon index.js

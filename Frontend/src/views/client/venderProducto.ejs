@@ -1,0 +1,49 @@
+<%- include('template/head'); -%>
+<body onload="obtenerProductos('myProducts')"></body>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a onclick="obtenerProductos('myProducts');" class="nav-link " href="#">
+                                <span data-feather="shopping-cart"></span>
+                                VER PRODUCTOS A LA VENTA <span class="sr-only"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a onclick="obtenerProductos('declineProducts');" class="nav-link " href="#">
+                                <span data-feather="shopping-cart"></span>
+                                VER PRODUCTOS DECLINADOS <span class="sr-only"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a onclick="obtenerProductos('pendingProducts');" class="nav-link " href="#">
+                                <span data-feather="shopping-cart"></span>
+                                VER PRODUCTOS PENDIENTES <span class="sr-only"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+                <div
+                    class="justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                    <h1 ALIGN="CENTER">PRODUCTOS</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        
+                    </div>
+                </div>
+                <table id="tablaProducto"  class="table table-hover" bgcolor="0A1375">
+                </table>
+        </div>
+    </div>
+    <%- include('template/foot'); -%></div>
+        </div>
+        </body>
+        <script src="js/interacciones_usuario/productosUsuario.js"></script>
+        <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+            <script>
+                feather.replace()
+            </script>
+        </html>
