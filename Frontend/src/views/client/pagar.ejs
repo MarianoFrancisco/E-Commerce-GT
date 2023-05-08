@@ -1,0 +1,54 @@
+<link href="css/registro.css" rel="stylesheet" id="bootstrap-css">
+<%- include('../template/head'); -%>
+    <br>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div style="width: 300px;"><input type="submit" onclick=" location.href='/carrito' " name="login"
+                value="Regresar" id="inBtnRst" style="color:rgb(0, 0, 0);"></div>
+    </nav>
+    <br>
+    <form method="POST" id="nuevoProductoForm">
+        <center>
+            <div id="circle">
+                <h1 id="blinking" style="color: #ffffff;">PAGAR</h1>
+                <h1 style="color: #ffffff;  margin: 0;">PAGAR RÁPIDAMENTE</h1>
+                <div id="box">
+                    <h3 style="color: #ffffff; margin: 0;">VISA:</h3>
+                    <select>
+                        <option>
+                            Hola
+                        </option>
+                    </select>
+                    <p></p>
+                    <input type="submit" name="registro" value="PAGAR" id="inBtn" style="color:white; margin: 0;">
+                </div>
+            </div>
+        </center>
+    </form>
+    <form method="POST" id="registroComunForm">
+        <center>
+            <br><br>
+            <div id="circle">
+                <h1 id="blinking" style="color: #ffffff; ">INGRESAR TARJETA</h1>
+                <div id="box2">
+                    <input type="text" required pattern="\d{4} \d{4} \d{4} \d{4}" name="numero" id="numero"
+                        placeholder="Numero de la tarjeta:0000 0000 0000 0000" class="input"><br>
+                    <p></p>
+                    <input type="text" required pattern="\d{2}/\d{2}" placeholder="Fecha de expiración: MM/AA"
+                        name="fecha" id="fecha" class="input"><br>
+                    <p></p>
+                    <input type="text" required pattern="\d{3}" placeholder="Código de seguridad: 000" name="codigo"
+                        id="codigo" class="input"><br>
+                    <p></p>
+                    <input type="text" required placeholder="Nombre del titular" name="nombre" id="nombre"
+                        class="input"><br>
+                    <p></p>
+                    <p></p>
+                    <input type="submit" name="registro" value="PAGAR" id="inBtn" style="color:white;">
+                </div>
+            </div>
+        </center>
+    </form>
+    <script src="js/interacciones_usuario/agregarProducto.js"></script>
+    </body>
+
+    </html>

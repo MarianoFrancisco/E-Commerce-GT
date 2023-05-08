@@ -47,14 +47,34 @@ function procesarDatos(datos) {
           <td><button type="button" id="agregar" class="btn btn-success">Agregar</button></td>
         `;
             tablaProductos.appendChild(fila);
-            const remove = fila.querySelector('#agregar');
-            remove.addEventListener('click', () => {
+            const agregar = fila.querySelector('#agregar');
+            agregar.addEventListener('click', () => {
                 const cantidad = fila.querySelector('#cantidad');
-                const producto = {
-                    id:productos._id
+                const productoCarrito = {
+                    usuario_venta: productos.usuario,
+                    nombre_producto:productos.nombre_producto,
+                    producto: productos._id,
+                    precio: productos.precio,
+                    cantidad: cantidad.value,
+                    imagen: productos.imagen
                 };
+                if (localStorage.getItem('Carrito') == null) {
+                    localStorage.setItem("Carrito", JSON.stringify([]));
+                }
+                let carritoAgregar = JSON.parse(localStorage.getItem('Carrito'));
+                carritoAgregar.push(productoCarrito);
+                localStorage.setItem("Carrito", JSON.stringify(carritoAgregar));
+                Swal.fire({
+                    icon: 'success',
+                    title: productoCarrito.cantidad+' de '+productoCarrito.nombre_producto+ ' agregado al carrito',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                setTimeout(redireccionar, 1500);
+                //localStorage.setItem("Usuario",JSON.stringify(datos[0]));
+                //let persona= JSON.parse(localStorage.getItem("Usuario"));
             });
-            
+
         }
     })
 }

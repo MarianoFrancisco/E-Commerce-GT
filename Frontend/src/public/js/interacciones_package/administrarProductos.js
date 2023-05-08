@@ -63,7 +63,7 @@ function procesarDatos(datos) {
         });
         rechazarProducto.addEventListener('click', () => {
             const producto = {
-                id:rechazarProducto.dataset.id
+                id:productos._id
             };
             fetch(URL + "rechazarProducto", {
                 method: 'POST',

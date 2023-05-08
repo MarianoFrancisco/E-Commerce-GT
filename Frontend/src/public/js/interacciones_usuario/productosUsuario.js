@@ -101,14 +101,23 @@ function procesarDatos(datos, accion) {
           <td>${productos.precio}</td>
           <td>${productos.existencia}</td>
           <td>${productos.categoria}</td>
-          <td><button class="solicitar" data-id="${productos._id}">SOLICITAR</button></td>
+          <td><button class="btn btn-success" id="solicitar">SOLICITAR</button></td>
         `;
             tablaProductos.appendChild(fila);
-            //Para abrir el documento
-            const editarButton = fila.querySelector('.solicitar');
-            editarButton.addEventListener('click', () => {
-                const id = editarButton.dataset.id;
-                window.location.href = `editUsuario.html?id=${id}`;
+            const remove = fila.querySelector('#solicitar');
+            remove.addEventListener('click', () => {
+                const producto = {
+                    id: productos._id
+                };
+                fetch(URL + "solicitarRevision", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(producto)
+                })
+                    .then(res => res.json())
+                    .then(setTimeout(redireccionar, 10))
             });
         })
     } else if (accion == "pendingProducts") {

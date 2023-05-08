@@ -1,7 +1,31 @@
 <%- include('template/head'); -%>
 
+    <body onload="carritoListado()"></body>
+    <div>
+        <div class="justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+
+            <h1 ALIGN="CENTER">PRODUCTOS</h1>
+
+            <div class="btn-toolbar mb-2 mb-md-0">
+
+            </div>
+        </div><br>
+        <div class="botonesDiv">
+            <button 
+                onclick="location.href='http://localhost:5500/comprar' " class="btn btn-success" style="margin-right:30px;">AGREGAR PRODUCTO</button>
+            <button 
+                onclick="eliminarCarrito()" class="btn btn-danger">BORRAR CARRITO</button>
+        </div><br>
+        <p></p>
+        <table id="tablaCarrito" class="table table-hover" bgcolor="0A1375">
+        </table>
+        <div id="total">
+
+        </div>
+    </div>
     <%- include('template/foot'); -%></div>
         </div>
         </body>
+        <script src="js/interacciones_usuario/listarCarrito.js"></script>
 
         </html>
