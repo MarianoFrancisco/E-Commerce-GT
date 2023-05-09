@@ -2,6 +2,7 @@ use e-commerce-gt
 db.createCollection('usuarios')
 db.createCollection('productos')
 db.createCollection('pedidos')
+db.createCollection('tarjetas')
 const startUsers=db.usuarios.insertMany(
     [
         {

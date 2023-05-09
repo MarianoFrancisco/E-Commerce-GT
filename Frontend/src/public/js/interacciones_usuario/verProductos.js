@@ -55,7 +55,7 @@ function procesarDatos(datos) {
                     nombre_producto:productos.nombre_producto,
                     producto: productos._id,
                     precio: productos.precio,
-                    cantidad: cantidad.value,
+                    cantidad: parseInt(cantidad.value, 10),
                     imagen: productos.imagen
                 };
                 if (localStorage.getItem('Carrito') == null) {

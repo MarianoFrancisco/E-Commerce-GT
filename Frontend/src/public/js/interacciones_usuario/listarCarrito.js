@@ -19,6 +19,8 @@ function carritoListado() {
         `;
     tablaCarrito.appendChild(fila);
     if (localStorage.getItem('Carrito') != null) {
+        //console.log(localStorage.getItem('Carrito').length);
+        //console.log(localStorage.getItem('Carrito').toString.length);
         const carritoJSON = JSON.parse(localStorage.getItem('Carrito'));
         var sumatoria = 0;
         carritoJSON.forEach((carrito, contador) => {
@@ -37,7 +39,7 @@ function carritoListado() {
             const eliminarProducto = fila.querySelector('#eliminar');
             actualizarCarrito.addEventListener('click', () => {
                 const cantidad = fila.querySelector('#cantidad');
-                carrito.cantidad = cantidad.value;
+                carrito.cantidad = parseInt(cantidad.value, 10);
                 localStorage.setItem("Carrito", JSON.stringify(carritoJSON));
                 Swal.fire({
                     icon: 'success',
@@ -68,14 +70,24 @@ function carritoListado() {
     }
 }
 function eliminarCarrito(){
-    localStorage.setItem("Carrito", JSON.stringify([]));
-    Swal.fire({
-        icon: 'success',
-        title: 'Carrito eliminado',
-        showConfirmButton: false,
-        timer: 1000
-    });
-    setTimeout(redireccionar, 1000);
+    if(localStorage.getItem('Carrito') != null){
+        localStorage.removeItem("Carrito");
+        Swal.fire({
+            icon: 'success',
+            title: 'Carrito eliminado',
+            showConfirmButton: false,
+            timer: 1000
+        });
+        setTimeout(redireccionar, 1500);
+    }else{
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'El carrito ya se encuentra vacío!',
+            footer: '<a>Para poder eliminar un carrito primero tienes que tener artículos</a>'
+        });
+        setTimeout(redireccionar, 1500);
+    }
 }
 function redireccionar() {
     window.location.href = "";
