@@ -1,6 +1,41 @@
 <%- include('template/head'); -%>
+<body onload="obtenerPedidos('pedidoEnCurso')"></body>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block sidebar">
+            <div class="sidebar-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a onclick="obtenerPedidos('pedidoEnCurso');" class="nav-link " href="#">
+                            <span data-feather="shopping-cart"></span>
+                            VER PEDIDOS EN CURSO <span class="sr-only"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a onclick="obtenerPedidos('pedidoEntregado');" class="nav-link " href="#">
+                            <span data-feather="shopping-cart"></span>
+                            VER PEDIDOS ENTREGADOS <span class="sr-only"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            
+            <div
+                class="justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                <h1 ALIGN="CENTER">PEDIDOS</h1>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    
+                </div>
+            </div>
+            <table id="tablaProducto"  class="table table-hover" bgcolor="0A1375">
+            </table>
+    </div>
+</div>
     <%- include('template/foot'); -%></div>
         </div>
         </body>
-
+        <script src="js/interacciones_usuario/listarPedidos.js"></script>
+        
         </html>

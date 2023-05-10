@@ -52,7 +52,7 @@ function procesarDatos(datos) {
                 const cantidad = fila.querySelector('#cantidad');
                 const productoCarrito = {
                     usuario_venta: productos.usuario,
-                    nombre_producto:productos.nombre_producto,
+                    nombre_producto: productos.nombre_producto,
                     producto: productos._id,
                     precio: productos.precio,
                     cantidad: parseInt(cantidad.value, 10),
@@ -66,13 +66,11 @@ function procesarDatos(datos) {
                 localStorage.setItem("Carrito", JSON.stringify(carritoAgregar));
                 Swal.fire({
                     icon: 'success',
-                    title: productoCarrito.cantidad+' de '+productoCarrito.nombre_producto+ ' agregado al carrito',
+                    title: productoCarrito.cantidad + ' de ' + productoCarrito.nombre_producto + ' agregado al carrito',
                     showConfirmButton: false,
                     timer: 1500
                 });
                 setTimeout(redireccionar, 1500);
-                //localStorage.setItem("Usuario",JSON.stringify(datos[0]));
-                //let persona= JSON.parse(localStorage.getItem("Usuario"));
             });
 
         }

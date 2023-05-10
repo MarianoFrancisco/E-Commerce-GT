@@ -560,16 +560,3 @@ db.productos.insertMany(
         }
     ]
 )
-db.pedidos.insertMany[//Imagen, nombre, precio, cantidad a comprar--usuario,nombre,precio,cantidad,imagen
-    {//userSell,producto,cantidad,precio -Al final se agrega -En curso, total, fecha entrega, usuario que compra
-        usuario_compra:"6454709b50485d5bf292cc14",
-        usuario_venta:[],
-        imagen:[],
-        producto:[],
-        cantidad:[],
-        precio:[],
-        total:"",
-        estado:"En curso",
-        fecha_entrega:""
-    }
-]

@@ -1,7 +1,18 @@
 <%- include('template/head'); -%>
 
+    <body onload="obtenerPedidos()"></body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                <h1 ALIGN="CENTER">PEDIDOS</h1>
+            </div>
+            <table id="tablaPedidos" class="table table-hover" bgcolor="0A1375">
+            </table>
+        </div>
+    </div>
     <%- include('template/foot'); -%></div>
         </div>
         </body>
+        <script src="js/interacciones_package/administrarPedidos.js"></script>
 
         </html>

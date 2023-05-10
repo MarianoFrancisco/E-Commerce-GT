@@ -38,15 +38,6 @@ function enviarDatosRegistro(evento) {
     datos.append('categoria',categoria);
     datos.append('usuario',usuario);
     datos.append('imagen',imagen);
-    /*const datosProducto = {
-        nombre_producto:nombre_producto,
-        descripcion:descripcion,
-        imagen:imagen,
-        precio:precio,
-        usuario:usuario,
-        existencia:existencia,
-        categoria:categoria
-    }*/
     fetch(URL + "nuevoProducto", {
         method: 'POST',
         body: datos
@@ -69,7 +60,7 @@ function procesarDatos(datos) {
             showConfirmButton: false,
             timer: 1500
         });
-        //setTimeout(redireccionar, 1500);
+        setTimeout(redireccionar, 1500);
     }
 }
 function redireccionar() {

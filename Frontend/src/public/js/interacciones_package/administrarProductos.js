@@ -49,7 +49,7 @@ function procesarDatos(datos) {
         const rechazarProducto = fila.querySelector('#rechazar');
         aceptarProducto.addEventListener('click', () => {
             const producto = {
-                id:productos._id
+                id: productos._id
             };
             fetch(URL + "aceptarProducto", {
                 method: 'POST',
@@ -59,11 +59,11 @@ function procesarDatos(datos) {
                 body: JSON.stringify(producto)
             })
                 .then(res => res.json())
-                .then(setTimeout(redireccionar, 10))
+                .then(aceptar())
         });
         rechazarProducto.addEventListener('click', () => {
             const producto = {
-                id:productos._id
+                id: productos._id
             };
             fetch(URL + "rechazarProducto", {
                 method: 'POST',
@@ -73,10 +73,28 @@ function procesarDatos(datos) {
                 body: JSON.stringify(producto)
             })
                 .then(res => res.json())
-                .then(setTimeout(redireccionar, 10))
+                .then(rechazar())
         });
     })
 
+}
+function rechazar() {
+    Swal.fire({
+        icon: 'error',
+        title: 'Venta de productos rechazada',
+        showConfirmButton: false,
+        timer: 1500
+    });
+    setTimeout(redireccionar, 1500);
+}
+function aceptar() {
+    Swal.fire({
+        icon: 'success',
+        title: 'Venta de producto aceptada exitosamente',
+        showConfirmButton: false,
+        timer: 1500
+    });
+    setTimeout(redireccionar, 1500);
 }
 function redireccionar() {
     window.location.href = "";

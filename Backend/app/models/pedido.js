@@ -11,6 +11,9 @@ const  pedidoSchema = new Schema({
     imagen: {
         type: Array
     },
+    nombre_producto: {
+        type: Array
+    },
     producto: {
         type: Array
     },
@@ -24,10 +27,10 @@ const  pedidoSchema = new Schema({
         type: Number
     },
     estado: {
-        type: Array
+        type: String, enum: ['EN CURSO','ENTREGADO']
     },
     fecha_entrega: {
-        type: Date
+        type: String
     }
 }, {
     versionKey: false

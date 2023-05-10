@@ -42,5 +42,11 @@ router.get('/administrarProductos', (req, res) => {
 router.get('/admin', (req, res) => {
     res.render('./admin/index', { title: 'Admin' });
 });
+router.get('/empleados', (req, res) => {
+    res.render('./admin/empleado', { title: 'Admin' });
+});
+router.get('/reportes', (req, res) => {
+    res.render('./admin/reporte', { title: 'Admin' });
+});
 
 module.exports = router;
