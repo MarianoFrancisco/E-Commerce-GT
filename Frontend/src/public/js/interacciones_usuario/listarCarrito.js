@@ -38,23 +38,34 @@ function carritoListado() {
             const actualizarCarrito = fila.querySelector('#actualizar');
             const eliminarProducto = fila.querySelector('#eliminar');
             actualizarCarrito.addEventListener('click', () => {
-                const cantidad = fila.querySelector('#cantidad');
-                carrito.cantidad = parseInt(cantidad.value, 10);
-                localStorage.setItem("Carrito", JSON.stringify(carritoJSON));
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Cantidad a comprar actualizada en '+carrito.nombre_producto,
-                    showConfirmButton: false,
-                    timer: 1500
-                });
-                setTimeout(redireccionar, 1500);
+                const datoCantidad = fila.querySelector('#cantidad');
+                cantidad = parseInt(datoCantidad.value, 10)
+                if (cantidad <= carrito.existencia) {
+                    carrito.cantidad = cantidad;
+
+                    localStorage.setItem("Carrito", JSON.stringify(carritoJSON));
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Cantidad a comprar actualizada en ' + carrito.nombre_producto,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    setTimeout(redireccionar, 1500);
+                }else{
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'No hay suficiente stock solicitado del producto ' + carrito.nombre_producto,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });setTimeout(redireccionar, 1500);
+                }
             });
             eliminarProducto.addEventListener('click', () => {
                 carritoJSON.splice(contador, 1);
                 localStorage.setItem("Carrito", JSON.stringify(carritoJSON));
                 Swal.fire({
                     icon: 'success',
-                    title: 'Producto '+carrito.nombre_producto+ ' eliminado exitosamente',
+                    title: 'Producto ' + carrito.nombre_producto + ' eliminado exitosamente',
                     showConfirmButton: false,
                     timer: 1500
                 });
@@ -69,8 +80,8 @@ function carritoListado() {
         miDiv.appendChild(nuevoParrafo);
     }
 }
-function eliminarCarrito(){
-    if(localStorage.getItem('Carrito') != null){
+function eliminarCarrito() {
+    if (localStorage.getItem('Carrito') != null) {
         localStorage.removeItem("Carrito");
         Swal.fire({
             icon: 'success',
@@ -79,7 +90,7 @@ function eliminarCarrito(){
             timer: 1000
         });
         setTimeout(redireccionar, 1500);
-    }else{
+    } else {
         Swal.fire({
             icon: 'error',
             title: 'Oops...',

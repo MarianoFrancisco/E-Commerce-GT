@@ -49,28 +49,54 @@ function procesarDatos(datos) {
             tablaProductos.appendChild(fila);
             const agregar = fila.querySelector('#agregar');
             agregar.addEventListener('click', () => {
-                const cantidad = fila.querySelector('#cantidad');
+                const datoCantidad = fila.querySelector('#cantidad');
+                const cantidad = parseInt(datoCantidad.value, 10)
                 const productoCarrito = {
                     usuario_venta: productos.usuario,
                     nombre_producto: productos.nombre_producto,
                     producto: productos._id,
                     precio: productos.precio,
-                    cantidad: parseInt(cantidad.value, 10),
+                    cantidad: cantidad,
+                    existencia: productos.existencia,
                     imagen: productos.imagen
                 };
-                if (localStorage.getItem('Carrito') == null) {
-                    localStorage.setItem("Carrito", JSON.stringify([]));
+                if (cantidad <= productos.existencia) {
+                    if (localStorage.getItem('Carrito') == null) {
+                        localStorage.setItem("Carrito", JSON.stringify([]));
+                    }
+                    let carritoAgregar = JSON.parse(localStorage.getItem('Carrito'));
+                    var siNo = true;
+                    for (let i = 0; i < carritoAgregar.length; i++) {
+                        if (carritoAgregar[i].producto==productoCarrito.producto) {
+                            siNo = false;
+                        }
+                    }
+                    if (siNo) {
+                        carritoAgregar.push(productoCarrito);
+                        localStorage.setItem("Carrito", JSON.stringify(carritoAgregar));
+                        Swal.fire({
+                            icon: 'success',
+                            title: productoCarrito.cantidad + ' de ' + productoCarrito.nombre_producto + ' agregado al carrito',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                        setTimeout(redireccionar, 1500);
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Producto ya agregado al carrito',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    }
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'No hay suficiente producto de lo solicitado',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
                 }
-                let carritoAgregar = JSON.parse(localStorage.getItem('Carrito'));
-                carritoAgregar.push(productoCarrito);
-                localStorage.setItem("Carrito", JSON.stringify(carritoAgregar));
-                Swal.fire({
-                    icon: 'success',
-                    title: productoCarrito.cantidad + ' de ' + productoCarrito.nombre_producto + ' agregado al carrito',
-                    showConfirmButton: false,
-                    timer: 1500
-                });
-                setTimeout(redireccionar, 1500);
             });
 
         }

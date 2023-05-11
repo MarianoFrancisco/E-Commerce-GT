@@ -72,8 +72,6 @@ function procesarDatos(datos, accion) {
             });
             const edit = fila.querySelector('#editar');
             edit.addEventListener('click', () => {
-                const id = edit.dataset.id;
-                window.location.href = `editUsuario.html?id=${productos._id}`;
             });
         })
     } else if (accion == "declineProducts") {
