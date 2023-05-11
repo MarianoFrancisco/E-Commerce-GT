@@ -1,5 +1,18 @@
 <%- include('template/head'); -%>
+<body onload="obtenerEmpleados()"></body>
+<div>
+    <div class="justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+
+        <h1 ALIGN="CENTER">EMPLEADOS</h1>
+
+        <div class="btn-toolbar mb-2 mb-md-0">
+        </div>
+    </div></div><button style="margin: 0 auto; display: block;" onclick="location.href='http://localhost:5500/registroEmpleado' " class="btn btn-success" >CREAR NUEVO EMPLEADO</button><p></p>
+    <table id="tablaEmpleados" class="table table-hover" bgcolor="0A1375">
+    </table>
+</div>
     <%- include('template/foot'); -%></div>
         </div>
+        <script src="js/interacciones_admin/listarEmpleado.js"></script>
         </body>
         </html>

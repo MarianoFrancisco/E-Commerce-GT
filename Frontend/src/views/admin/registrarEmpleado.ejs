@@ -1,0 +1,35 @@
+<link href="css/registro.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" href="css/bootstrap.css" />
+<%- include('../template/head'); -%>
+    <br><nav >
+        <div style="width: 300px;"><input type="submit" onclick=" location.href='/empleados' " name="login"
+                value="Regresar" id="inBtnRst" style="color:rgb(0, 0, 0);"></div>
+    </nav>
+    <br>
+    <form method="POST" id="registroComunForm">
+        <center>
+            <br><br><br><br><br>
+            <div id="circle">
+                <h1 id="blinking" style="color: #ffffff;">REGISTRARME</h1>
+                <div id="box">
+                    <input required type="text" name="usuario" id="usuario" placeholder="Ingrese su usuario" class="input"><br>
+                    <p></p>
+                    <input required type="text" name="direccion" id="direccion" placeholder="Ingrese su direccion" class="input"><br>
+                    <p></p>
+                    <h3>Selecciona el rol</h3>
+                    <select id="comboRoles" class="form-select">
+                        <option value="Administrador">Administrador</option>
+                        <option value="Paqueteria">Paquetería</option>
+                    </select>  <p></p> 
+                    <input required type="password" name="pwd" placeholder="Ingrese su contraseña" id="pwd" class="input">
+                    <p></p><p></p>
+                    <input type="submit" name="registro" value="Registrarme" id="inBtn" style="color:white;">
+                </div>
+            </div>
+        </center>
+    </form>
+    <%- include('../template/foot'); -%>
+    <script src="js/interacciones_admin/registroEmpleado.js"></script>
+</body>
+
+</html>

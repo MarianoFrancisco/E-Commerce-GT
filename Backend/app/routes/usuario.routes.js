@@ -1,7 +1,9 @@
 const express = require('express');
 const router =express.Router();
-const{obtenerUsuarios,loginUsuario,registrarUsuarioComun}=require('../controllers/usuario');
-router.get('/obtener',obtenerUsuarios);
+const{loginUsuario,registrarUsuarioComun,obtenerEmpleados,registrarUsuarioEmpleado,eliminarEmpleado}=require('../controllers/usuario');
+router.get('/empleados',obtenerEmpleados);
 router.post('/login',loginUsuario);
 router.post('/registroComun',registrarUsuarioComun);
+router.post('/registroEmpleado',registrarUsuarioEmpleado);
+router.delete('/removeEmpleado',eliminarEmpleado);
 module.exports=router;
